@@ -5,6 +5,8 @@ import App from './App';
 import {ApolloClient, ApolloProvider, InMemoryCache} from "@apollo/client";
 // import reportWebVitals from './reportWebVitals';
 
+const apolloCache1 = new InMemoryCache()
+
 const apolloCache = new InMemoryCache({
     typePolicies: {
         Query: {
@@ -27,7 +29,7 @@ const apolloCache = new InMemoryCache({
 
 const apolloClient = new ApolloClient({
     uri: 'https://render2-mern.onrender.com/api/v1/graphql',
-    cache: apolloCache,
+    cache: apolloCache1,
     defaultOptions: {
         watchQuery: { fetchPolicy: "cache-and-network" },
     },
