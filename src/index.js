@@ -11,6 +11,7 @@ const apolloCache = new InMemoryCache({
             fields: {
                 clients: {
                     merge(existing, incoming) {
+                        console.log("=== incoming111",incoming)
                         return incoming;
                     },
                 },
