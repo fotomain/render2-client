@@ -48,7 +48,9 @@ const App1 = ()=>{
     const [addClient] = useMutation(CREATE_CLIENT, {
         variables: { name:clientName, email:clientEmail, phone:clientPhone },
         update(cache, { data: { addClient } }) {
-            const { clients } = cache.readQuery({ query: GET_CLIENTS });
+            const ret0 = cache.readQuery({ query: GET_CLIENTS });
+            console.log("=== ret0",ret0)
+            const { clients } = ret0
 
             cache.writeQuery({
                 query: GET_CLIENTS,
